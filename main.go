@@ -14,6 +14,8 @@ func main() {
 	m := pdf.NewMaroto(consts.Portrait, consts.A4)
 	m.SetPageMargins(20, 10, 20)
 
+	buildingHeader(m)
+
 	err := m.OutputFileAndClose("pdfs/example-pdf.pdf")
 	if err != nil {
 		fmt.Println("could not save the PDF: ", err)
@@ -35,6 +37,17 @@ func buildingHeader(m pdf.Maroto) {
 				if err != nil {
 					fmt.Println("images file was not loaded: ", err)
 				}
+			})
+		})
+
+		m.Row(10, func() {
+			m.Col(12, func() {
+				m.Text("", props.Text{
+					Top:   3,
+					Style: consts.Bold,
+					Align: consts.Center,
+					Color: getDarkPurple(),
+				})
 			})
 		})
 	})
