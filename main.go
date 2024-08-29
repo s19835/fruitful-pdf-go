@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/johnfercher/maroto/pkg/color"
 	"github.com/johnfercher/maroto/pkg/consts"
 	"github.com/johnfercher/maroto/pkg/pdf"
+	"github.com/johnfercher/maroto/pkg/props"
 )
 
 func main() {
@@ -19,4 +21,29 @@ func main() {
 	}
 
 	fmt.Println("PDF save successfully.")
+}
+
+func buildingHeader(m pdf.Maroto) {
+	m.RegisterHeader(func() {
+		m.Row(50, func() {
+			m.Col(12, func() {
+				err := m.FileImage("images/freepik-jp.jpeg", props.Rect{
+					Center:  true,
+					Percent: 75,
+				})
+
+				if err != nil {
+					fmt.Println("images file was not loaded: ", err)
+				}
+			})
+		})
+	})
+}
+
+func getDarkPurple() color.Color {
+	return color.Color{
+		Red:   88,
+		Green: 80,
+		Blue:  99,
+	}
 }
