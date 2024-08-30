@@ -59,6 +59,7 @@ func buildingHeader(m pdf.Maroto) {
 func tableOfContent(m pdf.Maroto) {
 	tableHeadings := []string{"Furit", "Description", "Price"}
 	contents := [][]string{{}}
+	lightPurple := getLightPurple()
 
 	m.SetBackgroundColor(getTeal())
 
@@ -86,10 +87,19 @@ func tableOfContent(m pdf.Maroto) {
 			Size:      8,
 			GridSizes: []uint{3, 7, 2},
 		},
-		Align:              consts.Left,
-		HeaderContentSpace: 1,
-		Line:               false,
+		Align:                consts.Left,
+		HeaderContentSpace:   1,
+		Line:                 false,
+		AlternatedBackground: &lightPurple,
 	})
+}
+
+func getLightPurple() color.Color {
+	return color.Color{
+		Red:   210,
+		Green: 200,
+		Blue:  230,
+	}
 }
 
 func getDarkPurple() color.Color {
