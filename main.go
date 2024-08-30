@@ -57,6 +57,9 @@ func buildingHeader(m pdf.Maroto) {
 
 // function to create a table of contents
 func tableOfContent(m pdf.Maroto) {
+	tableHeadings := []string{"Furit", "Description", "Price"}
+	contents := [][]string{{}}
+
 	m.SetBackgroundColor(getTeal())
 
 	m.Row(10, func() {
@@ -70,6 +73,22 @@ func tableOfContent(m pdf.Maroto) {
 				Align:  consts.Center,
 			})
 		})
+	})
+
+	m.SetBackgroundColor(color.NewWhite())
+
+	m.TableList(tableHeadings, contents, props.TableList{
+		HeaderProp: props.TableListContent{
+			Size:      9,
+			GridSizes: []uint{3, 7, 2},
+		},
+		ContentProp: props.TableListContent{
+			Size:      8,
+			GridSizes: []uint{3, 7, 2},
+		},
+		Align:              consts.Left,
+		HeaderContentSpace: 1,
+		Line:               false,
 	})
 }
 
