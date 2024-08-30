@@ -39,15 +39,15 @@ func buildingHeader(m pdf.Maroto) {
 				}
 			})
 		})
+	})
 
-		m.Row(10, func() {
-			m.Col(12, func() {
-				m.Text("A vibrant, stylized sunset scene featuring traditional East Asian architecture against a backdrop of a futuristic cityscape.", props.Text{
-					Top:   3,
-					Style: consts.Bold,
-					Align: consts.Center,
-					Color: getDarkPurple(),
-				})
+	m.Row(10, func() {
+		m.Col(12, func() {
+			m.Text("A vibrant, stylized sunset scene featuring traditional East Asian architecture against a backdrop of a futuristic cityscape.", props.Text{
+				Top:   3,
+				Style: consts.Bold,
+				Align: consts.Center,
+				Color: getDarkPurple(),
 			})
 		})
 	})
