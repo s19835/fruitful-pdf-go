@@ -15,6 +15,7 @@ func main() {
 	m.SetPageMargins(20, 10, 20)
 
 	buildingHeader(m)
+	tableOfContent(m)
 
 	err := m.OutputFileAndClose("pdfs/example-pdf.pdf")
 	if err != nil {
@@ -25,6 +26,7 @@ func main() {
 	fmt.Println("PDF save successfully.")
 }
 
+// Function to build the heading of the pdf
 func buildingHeader(m pdf.Maroto) {
 	m.RegisterHeader(func() {
 		m.Row(50, func() {
@@ -44,10 +46,28 @@ func buildingHeader(m pdf.Maroto) {
 	m.Row(10, func() {
 		m.Col(12, func() {
 			m.Text("A vibrant, stylized sunset scene featuring traditional East Asian architecture against a backdrop of a futuristic cityscape.", props.Text{
-				Top:   3,
+				Top:   1,
 				Style: consts.Bold,
 				Align: consts.Center,
 				Color: getDarkPurple(),
+			})
+		})
+	})
+}
+
+// function to create a table of contents
+func tableOfContent(m pdf.Maroto) {
+	m.SetBackgroundColor(getTeal())
+
+	m.Row(10, func() {
+		m.Col(12, func() {
+			m.Text("", props.Text{
+				Top:    2,
+				Size:   13,
+				Color:  color.NewWhite(),
+				Family: consts.Courier,
+				Style:  consts.Bold,
+				Align:  consts.Center,
 			})
 		})
 	})
@@ -58,5 +78,13 @@ func getDarkPurple() color.Color {
 		Red:   88,
 		Green: 80,
 		Blue:  99,
+	}
+}
+
+func getTeal() color.Color {
+	return color.Color{
+		Red:   3,
+		Green: 166,
+		Blue:  166,
 	}
 }
