@@ -33,7 +33,7 @@ func buildingHeader(m pdf.Maroto) {
 	m.RegisterHeader(func() {
 		m.Row(50, func() {
 			m.Col(12, func() {
-				err := m.FileImage("images/freepik-jp.jpeg", props.Rect{
+				err := m.FileImage("images/fruits.jpg", props.Rect{
 					Center:  true,
 					Percent: 75,
 				})
@@ -47,7 +47,7 @@ func buildingHeader(m pdf.Maroto) {
 
 	m.Row(10, func() {
 		m.Col(12, func() {
-			m.Text("A vibrant, stylized sunset scene featuring traditional East Asian architecture against a backdrop of a futuristic cityscape.", props.Text{
+			m.Text("Eat fruits daily for a natural boost of vitamins, fiber, and energy.", props.Text{
 				Top:   1,
 				Style: consts.Bold,
 				Align: consts.Center,
@@ -67,7 +67,7 @@ func tableOfContent(m pdf.Maroto) {
 
 	m.Row(10, func() {
 		m.Col(12, func() {
-			m.Text("Table of Content", props.Text{
+			m.Text("List of Fruits", props.Text{
 				Top:    2,
 				Size:   13,
 				Color:  color.NewWhite(),
