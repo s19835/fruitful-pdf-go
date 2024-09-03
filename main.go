@@ -57,15 +57,15 @@ func buildingHeader(m pdf.Maroto) {
 
 // function to create a table of contents
 func tableOfContent(m pdf.Maroto) {
-	tableHeadings := []string{"Furit", "Description", "Price"}
-	contents := [][]string{{}}
+	tableHeadings := []string{"Furit", "Description", "Price"}                                         // demi headings
+	contents := [][]string{{"Apple", "Red and Juciy", "2.00"}, {"Orange", "Orange and Juciy", "3.00"}} // demi contents
 	lightPurple := getLightPurple()
 
 	m.SetBackgroundColor(getTeal())
 
 	m.Row(10, func() {
 		m.Col(12, func() {
-			m.Text("", props.Text{
+			m.Text("Table of Content", props.Text{
 				Top:    2,
 				Size:   13,
 				Color:  color.NewWhite(),
