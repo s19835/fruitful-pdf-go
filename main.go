@@ -8,6 +8,8 @@ import (
 	"github.com/johnfercher/maroto/pkg/consts"
 	"github.com/johnfercher/maroto/pkg/pdf"
 	"github.com/johnfercher/maroto/pkg/props"
+
+	"github.com/s19835/fruitful-pdf-go/data"
 )
 
 func main() {
@@ -57,8 +59,8 @@ func buildingHeader(m pdf.Maroto) {
 
 // function to create a table of contents
 func tableOfContent(m pdf.Maroto) {
-	tableHeadings := []string{"Furit", "Description", "Price"}                                         // demi headings
-	contents := [][]string{{"Apple", "Red and Juciy", "2.00"}, {"Orange", "Orange and Juciy", "3.00"}} // demi contents
+	tableHeadings := []string{"Furit", "Description", "Price"} // demi headings
+	contents := data.FruitList(20)
 	lightPurple := getLightPurple()
 
 	m.SetBackgroundColor(getTeal())

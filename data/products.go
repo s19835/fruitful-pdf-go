@@ -24,7 +24,7 @@ func generateFruit() []string {
 	return froot
 }
 
-func fruitList(length int) [][]string {
+func FruitList(length int) [][]string {
 	var fruits [][]string
 
 	for i := 0; i < length; i++ {
